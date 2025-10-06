@@ -7,6 +7,12 @@
 <p role="status">Current count: @currentCount</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<br />
+<br />
+
+<MudText Typo="Typo.h6">This is a MudBlazor Text component</MudText>
+<MudText Typo="Typo.h6">This button is clicked @count times</MudText>
+<MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="MudButtonClicked">@buttonText</MudButton>
 
 @code {
     private int currentCount = 0;
@@ -15,4 +21,14 @@
     {
         currentCount++;
     }
+
+
+    private string? buttonText = "Click mud Button";
+    private int count { get; set; }
+
+    void MudButtonClicked()
+    {
+        count++;
+        buttonText = $"The button was clicked {count} times, click again";
+    } 
 }

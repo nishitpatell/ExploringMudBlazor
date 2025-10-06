@@ -1,0 +1,56 @@
+﻿@page "/mudtable1"
+
+<PageTitle>MudTable</PageTitle>
+
+<MudText Typo="Typo.h4" GutterBottom="true">Patient Records</MudText>
+
+<MudTable Items="@GetPatients()" Hover="true" Striped="true">
+    <HeaderContent>
+        <MudTh>ID</MudTh>
+        <MudTh>Name</MudTh>
+        <MudTh>Age</MudTh>
+        <MudTh>Severity</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="ID">@context.Id</MudTd>
+        <MudTd DataLabel="Name">@context.Name</MudTd>
+        <MudTd DataLabel="Age">@context.Age</MudTd>
+        <MudTd DataLabel="Severity">@context.Severity</MudTd>
+    </RowTemplate>
+    <PagerContent>
+        <MudTablePager/>
+    </PagerContent>
+</MudTable>
+
+@code {
+    public class Patient
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public string Severity { get; set; }
+    }
+
+    // In a real app, this data would come from a database
+    private IEnumerable<Patient> GetPatients()
+    {
+        return new List<Patient>
+        {
+            new Patient { Id = 101, Name = "Smit Patel", Age = 34, Severity = "Stable" },
+            new Patient { Id = 102, Name = "Asha Sharma", Age = 28, Severity = "Critical" },
+            new Patient { Id = 103, Name = "Vijay Singh", Age = 52, Severity = "Serious" },
+            new Patient { Id = 104, Name = "Priya Desai", Age = 45, Severity = "Stable" },
+            new Patient { Id = 105, Name = "Rohan Mehta", Age = 61, Severity = "Stable" },
+            new Patient { Id = 101, Name = "Smit Patel", Age = 34, Severity = "Stable" },
+            new Patient { Id = 102, Name = "Asha Sharma", Age = 28, Severity = "Critical" },
+            new Patient { Id = 103, Name = "Vijay Singh", Age = 52, Severity = "Serious" },
+            new Patient { Id = 104, Name = "Priya Desai", Age = 45, Severity = "Stable" },
+            new Patient { Id = 105, Name = "Rohan Mehta", Age = 61, Severity = "Stable" },
+            new Patient { Id = 101, Name = "Smit Patel", Age = 34, Severity = "Stable" },
+            new Patient { Id = 102, Name = "Asha Sharma", Age = 28, Severity = "Critical" },
+            new Patient { Id = 103, Name = "Vijay Singh", Age = 52, Severity = "Serious" },
+            new Patient { Id = 104, Name = "Priya Desai", Age = 45, Severity = "Stable" },
+            new Patient { Id = 105, Name = "Rohan Mehta", Age = 61, Severity = "Stable" },
+        };
+    }
+}
